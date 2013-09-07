@@ -25,7 +25,7 @@ The main idea behind this little project is to learn how to build an application
 1. Install [node.js and npm](http://nodejs.org/download/ "Download node.js")
 2. $ npm install -g grunt-cli
 3. $ git clone git@github.com:nosch/ng-scaffold.git "ng-scaffold"
-4. $ cd ng-scaffold/client/
+4. $ cd ng-scaffold
 5. $ npm install
 
 ## 5. How to use
