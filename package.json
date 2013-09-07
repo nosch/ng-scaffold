@@ -11,7 +11,7 @@
     "licenses": [
         {
           "type": "MIT",
-          "url": "http://nosch.bitbucket.org/license.txt"
+          "url": "http://raw.github.com/nosch/ng-scaffold/master/"
         }
     ],
     "engines": {
