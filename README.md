@@ -1,6 +1,39 @@
-ng-scaffold
-===========
+# ng-scaffold
 
-Skeleton of an AngularJS web application.
+## 1. What is it?
+This a simple skeleton of an [AngularJS](http://angularjs.org/) web application. And with the help of [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/) it is possible to use this skeleton as a starting point for frontend development with AngularJS.
 
-*Status:* "Soon come!"
+## 2. What for?
+The main idea behind this little project is to learn how to build an application with AngularJS. And as a really nice *side effect* the automation based on Grunt and Bower takes away some of the repetitive and annoying tasks.
+
+## 3. Stack
+### The application
+
+- AngularJS v1.2.0rc
+- jQuery v2.0
+- Twitter Bootstrap v3.0
+- Modernizr v2.6.2
+
+### The build process
+
+- Grunt v0.4.1
+- Bower v1.2.6
+- Karma v0.10.2
+
+## 4. Installation
+
+1. Install [node.js and npm](http://nodejs.org/download/ "Download node.js")
+2. $ npm install -g grunt-cli
+3. $ git clone git@github.com:nosch/ng-scaffold.git "ng-scaffold"
+4. $ cd ng-scaffold/client/
+5. $ npm install
+
+## 5. How to use
+Start to develop, to test or to build an application with one of the following grunt tasks.
+
+- $ grunt dev-server
+- $ grunt release && grunt release-server
+- $ grunt test
+
+## 6. Status
+It's still under construction.

@@ -1,0 +1,6 @@
+*.log
+dist
+release
+vendor
+node_modules
+test/coverage

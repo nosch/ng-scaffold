@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="application"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8" ng-app="application"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" class="no-js lt-ie9" ng-app="application"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js" ng-app="application"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="An AngularJS application scaffold.">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link rel="shortcut icon" type="image/png" href="favicon.ico">
+
+        <!-- Le CSS-->
+        <link rel="stylesheet" href="css/bootstrap<%= meta.minSuffix %>.css">
+        <link rel="stylesheet" href="css/app<%= meta.minSuffix %>.css">
+
+        <!-- Google web fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+
+        <title>Angular Scaffold</title>
+    </head>
+    <body ng-cloak ng-controller="ApplicationCtrl">
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Header, main content area and footer -->
+        <div ng-include="'/src/tpl/header.tpl.html'"></div>
+        <div ng-view class="container"></div>
+        <div ng-include="'/src/tpl/footer.tpl.html'"></div>
+
+        <!-- Le JavaScript -->
+        <script src="lib/modernizr<%= meta.minSuffix %>.js"></script>
+        <script src="lib/jquery<%= meta.minSuffix %>.js"></script>
+        <script src="lib/bootstrap<%= meta.minSuffix %>.js"></script>
+        <script src="lib/angular<%= meta.minSuffix %>.js"></script>
+        <script src="lib/angular-route<%= meta.minSuffix %>.js"></script>
+        <script src="src/app<%= meta.minSuffix %>.js"></script>
+    </body>
+</html>
