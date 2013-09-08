@@ -15,7 +15,7 @@ describe('Unit Testing: Application/Controller', function () {
     }));
 
     describe('ApplicationCtrl', function () {
-        it('should call crudListMethods', function () {
+        it('should set the correct heading text "Angular Scaffold!"', function () {
             var expected = {
                 heading: 'Angular Scaffold!'
             };
