@@ -1,6 +1,7 @@
 *.log
 dist
 release
+reports
 vendor
 node_modules
 test/coverage

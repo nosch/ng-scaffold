@@ -31,8 +31,9 @@ module.exports = function (grunt) {
     // but no tests
     grunt.registerTask('dev', [
         'jshint:dev',
+        'plato:dev',
         'build',
-        'jshint:afterconcat'
+        'jshint:afterconcat',
     ]);
 
     // Run and autowatch development build
@@ -125,7 +126,7 @@ module.exports = function (grunt) {
         },
 
         /**
-         * dev + release tasks: jshint, karma
+         * dev + release tasks: jshint, palato, karma
          */
         jshint: {
             options: {
@@ -145,6 +146,21 @@ module.exports = function (grunt) {
             afterconcat: [
                 'dist/src/**/*.js'
             ]
+        },
+
+        plato: {
+            dev: {
+                options: {
+                    jshint: grunt.file.readJSON('.jshintrc')
+                },
+                files: {
+                    'reports': [
+                        'src/**/*.js',
+                        'test/unit/**/*.js',
+                        'test/e2e/**/*.js'
+                    ],
+                }
+            },
         },
 
         karma: {
