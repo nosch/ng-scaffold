@@ -4,3 +4,4 @@ release
 vendor
 node_modules
 test/coverage
+.idea
