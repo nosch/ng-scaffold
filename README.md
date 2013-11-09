@@ -27,6 +27,7 @@ The main idea behind this little project is to learn how to build an application
 3. $ git clone git@github.com:nosch/ng-scaffold.git "ng-scaffold"
 4. $ cd ng-scaffold
 5. $ npm install
+6. $ bower install
 
 ## 5. How to use
 Start to develop, to test or to build an application with one of the following grunt tasks.
