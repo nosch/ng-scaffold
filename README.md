@@ -9,16 +9,16 @@ The main idea behind this little project is to learn how to build an application
 ## 3. Stack
 ### The application
 
-- AngularJS v1.2.0rc
+- AngularJS v1.2.0
 - jQuery v2.0
 - Twitter Bootstrap v3.0
-- Modernizr v2.6.2
+- Modernizr v2.6.3
 
 ### The build process
 
 - Grunt v0.4.1
-- Bower v1.2.6
-- Karma v0.10.2
+- Bower v1.2.7
+- Karma v0.10.4
 
 ## 4. Installation
 
