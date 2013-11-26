@@ -3,9 +3,9 @@
     "version": "0.0.1",
     "dependencies": {},
     "devDependencies": {
-        "angular": "1.2.0",
-        "angular-route": "1.2.0",
-        "angular-mocks": "1.2.0",
+        "angular": "1.2.2",
+        "angular-route": "1.2.2",
+        "angular-mocks": "1.2.2",
         "jquery": ">= 2.0.0",
         "modernizr": "http://modernizr.com/downloads/modernizr-latest.js",
         "bootstrap": ">= 3.0.0"
