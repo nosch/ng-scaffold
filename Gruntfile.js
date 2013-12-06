@@ -330,9 +330,9 @@ module.exports = function (grunt) {
                     expand: true,
                 }, {
                     // copy vendor: Bootstrap (fonts)
-                    cwd: 'vendor/bootstrap/',
-                    src : 'fonts/*',
-                    dest: 'dist',
+                    cwd: 'vendor/bootstrap/dist/fonts',
+                    src : ['*'],
+                    dest: 'dist/fonts',
                     expand: true
                 }, {
                     // copy vendor: Bootstrap (css)
