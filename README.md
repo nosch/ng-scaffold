@@ -9,16 +9,16 @@ The main idea behind this little project is to learn how to build an application
 ## 3. Stack
 ### The application
 
-- AngularJS v1.2.0
+- AngularJS v1.2.8
 - jQuery v2.0
 - Twitter Bootstrap v3.0
 - Modernizr v2.6.3
 
 ### The build process
 
-- Grunt v0.4.1
-- Bower v1.2.7
-- Karma v0.10.4
+- Grunt v0.4.2
+- Bower v1.2.8
+- Karma v0.10.9
 
 ## 4. Installation
 
@@ -35,6 +35,3 @@ Start to develop, to test or to build an application with one of the following g
 - $ grunt dev-server
 - $ grunt release && grunt release-server
 - $ grunt test
-
-## 6. Status
-It's still under construction.
