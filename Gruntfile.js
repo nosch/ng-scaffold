@@ -7,7 +7,7 @@ module.exports = function (grunt) {
     'use strict';
 
     // load all required Grunt plugins listed in package.json
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    require('load-grunt-tasks')(grunt);
 
     // display the elapsed execution time of all tasks
     require('time-grunt')(grunt);
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
         'jshint:dev',
         'plato:dev',
         'build',
-        'jshint:afterconcat',
+        'jshint:afterconcat'
     ]);
 
     // Run and autowatch development build
@@ -141,7 +141,7 @@ module.exports = function (grunt) {
                 'Gruntfile.js'
             ],
             release: [
-                'src/**/*.js',
+                'src/**/*.js'
             ],
             afterconcat: [
                 'dist/src/**/*.js'
@@ -158,9 +158,9 @@ module.exports = function (grunt) {
                         'src/**/*.js',
                         'test/unit/**/*.js',
                         'test/e2e/**/*.js'
-                    ],
+                    ]
                 }
-            },
+            }
         },
 
         karma: {
@@ -327,7 +327,7 @@ module.exports = function (grunt) {
                     cwd: 'src/asset',
                     src : '**',
                     dest: 'dist',
-                    expand: true,
+                    expand: true
                 }, {
                     // copy vendor: Bootstrap (fonts)
                     cwd: 'vendor/bootstrap/dist/fonts',
@@ -418,7 +418,7 @@ module.exports = function (grunt) {
                     process: true
                 },
                 files: {
-                    'dist/index.html': ['src/index.html'],
+                    'dist/index.html': ['src/index.html']
                 }
             },
             build: {
@@ -434,10 +434,10 @@ module.exports = function (grunt) {
                             /(^|\n)([ \t]*)('use strict'|"use strict");?\s*/g,
                             '$1$2'
                         );
-                    },
+                    }
                 },
                 files: {
-                    'dist/src/app.js': ['src/**/*.js'],
+                    'dist/src/app.js': ['src/**/*.js']
                 }
             }
         },
@@ -476,7 +476,7 @@ module.exports = function (grunt) {
                 exportAll: true,
                 compress: {
                     dead_code: false,
-                    unused: false,
+                    unused: false
                 }
             },
             // app.js
@@ -488,6 +488,6 @@ module.exports = function (grunt) {
                     'dist/src/app.min.js': ['dist/src/app.js']
                 }
             }
-        },
+        }
     });
 };

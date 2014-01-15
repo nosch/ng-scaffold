@@ -19,7 +19,7 @@
     },
     "dependencies": {},
     "devDependencies": {
-        "matchdep": ">=0.3.0",
+        "load-grunt-tasks": ">=0.2.1",
         "karma": ">=0.10.9",
         "karma-coverage": ">=0.1.4",
         "karma-firefox-launcher": ">=0.1.3",
