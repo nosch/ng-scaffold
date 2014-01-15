@@ -82,6 +82,7 @@
         "afterEach": true,
         "it": true,
         "xit": true,
-        "expect": true
+        "expect": true,
+        "module": true
     }
 }
