@@ -14,9 +14,6 @@
         <link rel="stylesheet" href="css/bootstrap<%= meta.minSuffix %>.css">
         <link rel="stylesheet" href="css/app<%= meta.minSuffix %>.css">
 
-        <!-- Google web fonts -->
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-
         <title>Angular Scaffold</title>
     </head>
     <body ng-cloak ng-controller="ApplicationCtrl">
@@ -25,9 +22,9 @@
         <![endif]-->
 
         <!-- Header, main content area and footer -->
-        <div ng-include="'/src/tpl/header.tpl.html'"></div>
+        <div ng-include="'/script/view/header.tpl.html'"></div>
         <div ng-view class="container"></div>
-        <div ng-include="'/src/tpl/footer.tpl.html'"></div>
+        <div ng-include="'/script/view/footer.tpl.html'"></div>
 
         <!-- Le JavaScript -->
         <script src="lib/modernizr<%= meta.minSuffix %>.js"></script>
@@ -35,6 +32,6 @@
         <script src="lib/bootstrap<%= meta.minSuffix %>.js"></script>
         <script src="lib/angular<%= meta.minSuffix %>.js"></script>
         <script src="lib/angular-route<%= meta.minSuffix %>.js"></script>
-        <script src="src/app<%= meta.minSuffix %>.js"></script>
+        <script src="script/app<%= meta.minSuffix %>.js"></script>
     </body>
 </html>

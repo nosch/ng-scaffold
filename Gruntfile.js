@@ -200,7 +200,6 @@ module.exports = function (grunt) {
                 files: [
                     'src/index.html',
                     'src/app/**/*.tpl.html',
-                    'src/common/**/*.tpl.html',
                     'src/less/*.less',
                     'src/**/*.js',
                     'Gruntfile.js',
@@ -296,7 +295,7 @@ module.exports = function (grunt) {
             release: ['release'],
             // delete all unminified sources from dist/
             unmin: [
-                'dist/src/app.js',
+                'dist/script/app.js',
                 'dist/lib/angular.js',
                 'dist/lib/angular-route.js',
                 'dist/lib/bootstrap.js',
@@ -316,10 +315,9 @@ module.exports = function (grunt) {
                 }, {
                     // copy angular templates
                     src: [
-                        'src/app/**/*.tpl.html',
-                        'src/common/**/*.tpl.html'
+                        'src/app/**/*.tpl.html'
                     ],
-                    dest: 'dist/src/tpl/',
+                    dest: 'dist/script/view/',
                     expand: true,
                     flatten: true
                 }, {
@@ -329,44 +327,44 @@ module.exports = function (grunt) {
                     dest: 'dist',
                     expand: true
                 }, {
-                    // copy vendor: Bootstrap (fonts)
-                    cwd: 'vendor/bootstrap/dist/fonts',
+                    // copy bower_components: Bootstrap (fonts)
+                    cwd: 'bower_components/bootstrap/dist/fonts',
                     src : ['*'],
                     dest: 'dist/fonts',
                     expand: true
                 }, {
-                    // copy vendor: Bootstrap (css)
-                    cwd: 'vendor/bootstrap/dist/css',
+                    // copy bower_components: Bootstrap (css)
+                    cwd: 'bower_components/bootstrap/dist/css',
                     src : ['bootstrap.css', 'bootstrap.min.css'],
                     dest: 'dist/css',
                     expand: true
                 }, {
-                    // copy vendor: Bootstrap (js)
-                    cwd: 'vendor/bootstrap/dist/js',
+                    // copy bower_components: Bootstrap (js)
+                    cwd: 'bower_components/bootstrap/dist/js',
                     src : ['*.js'],
                     dest: 'dist/lib',
                     expand: true
                 }, {
-                    // copy vendor: Angular
-                    cwd: 'vendor/angular/',
+                    // copy bower_components: Angular
+                    cwd: 'bower_components/angular/',
                     src : ['angular.js', 'angular.min.js'],
                     dest: 'dist/lib',
                     expand: true
                 }, {
-                    // copy vendor: Angular-Route
-                    cwd: 'vendor/angular-route/',
+                    // copy bower_components: Angular-Route
+                    cwd: 'bower_components/angular-route/',
                     src : ['angular-route.js', 'angular-route.min.js'],
                     dest: 'dist/lib',
                     expand: true
                 }, {
-                    // copy vendor: jQuery
-                    cwd: 'vendor/jquery/',
+                    // copy bower_components: jQuery
+                    cwd: 'bower_components/jquery/',
                     src : ['jquery.js', 'jquery.min.js'],
                     dest: 'dist/lib',
                     expand: true
                 }, {
-                    // copy vendor: Modernizr
-                    src: 'vendor/modernizr/index.js',
+                    // copy bower_components: Modernizr
+                    src: 'bower_components/modernizr/index.js',
                     dest: 'dist/lib/modernizr.js'
                 }]
             },
@@ -383,7 +381,7 @@ module.exports = function (grunt) {
 
         modernizr: {
             // generate a uglified version of modernizr.js
-            'devFile' : 'vendor/modernizr/index.js',
+            'devFile' : 'bower_components/modernizr/index.js',
             'outputFile' : 'dist/lib/modernizr.min.js',
             'uglify' : true,
             'tests' : [],
@@ -437,7 +435,7 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    'dist/src/app.js': ['src/**/*.js']
+                    'dist/script/app.js': ['src/**/*.js']
                 }
             }
         },
@@ -485,7 +483,7 @@ module.exports = function (grunt) {
                     banner: '<%= meta.banner %>'
                 },
                 files: {
-                    'dist/src/app.min.js': ['dist/src/app.js']
+                    'dist/script/app.min.js': ['dist/script/app.js']
                 }
             }
         }
