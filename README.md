@@ -12,7 +12,7 @@ The main idea behind this little project is to learn how to build an application
 - AngularJS v1.2.8
 - jQuery v2.0
 - Twitter Bootstrap v3.0
-- Modernizr v2.6.3
+- Modernizr v2.7.1
 
 ### The build process
 
