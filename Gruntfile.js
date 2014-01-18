@@ -15,6 +15,9 @@ module.exports = function (grunt) {
    /**
     * Register custom tasks.
     */
+    // Default
+    grunt.registerTask('default', ['dev-server']);
+
     // Create build
     grunt.registerTask('build', [
         'clean:dist',
@@ -22,6 +25,7 @@ module.exports = function (grunt) {
         'copy:build',
         'modernizr',
         'concat',
+        'ngmin',
         'recess',
         'uglify'
     ]);
@@ -296,6 +300,7 @@ module.exports = function (grunt) {
             // delete all unminified sources from dist/
             unmin: [
                 'dist/script/app.js',
+                'dist/script/app.annotate.js',
                 'dist/lib/angular.js',
                 'dist/lib/angular-route.js',
                 'dist/lib/bootstrap.js',
@@ -440,6 +445,13 @@ module.exports = function (grunt) {
             }
         },
 
+        ngmin: {
+            app: {
+                src: ['dist/script/app.js'],
+                dest: 'dist/script/app.annotate.js'
+            }
+        },
+
         recess: {
             options: {
                 noIDs: false,
@@ -483,7 +495,7 @@ module.exports = function (grunt) {
                     banner: '<%= meta.banner %>'
                 },
                 files: {
-                    'dist/script/app.min.js': ['dist/script/app.js']
+                    'dist/script/app.min.js': ['dist/script/app.annotate.js']
                 }
             }
         }
