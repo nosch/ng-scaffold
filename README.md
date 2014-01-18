@@ -1,7 +1,7 @@
 # ng-scaffold
 
 ## 1. What is it?
-This a simple skeleton of an [AngularJS](http://angularjs.org/) web application. And with the help of [Grunt](http://gruntjs.com/) and [Bower](http://bower.io/) it is possible to use this skeleton as a starting point for frontend development with AngularJS.
+This a simple skeleton of an [AngularJS](http://angularjs.org/) web application. And with the help of [Grunt](http://gruntjs.com/), [Bower](http://bower.io/) and [Karma](http://karma-runner.github.io/) it is possible to use this skeleton as a starting point for frontend development with AngularJS.
 
 ## 2. What for?
 The main idea behind this little project is to learn how to build an application with AngularJS. And as a really nice *side effect* the automation based on Grunt and Bower takes away some of the repetitive and annoying tasks.
