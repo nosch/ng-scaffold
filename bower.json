@@ -1,13 +1,13 @@
 {
     "name": "ng-scaffold",
-    "version": "0.0.1",
+    "version": "0.0.9",
     "dependencies": {},
     "devDependencies": {
-        "angular": "1.2.8",
-        "angular-route": "1.2.8",
-        "angular-mocks": "1.2.8",
+        "angular": "1.2.9",
+        "angular-route": "1.2.9",
+        "angular-mocks": "1.2.9",
         "jquery": ">= 2.0.3",
-        "modernizr": "http://modernizr.com/downloads/modernizr-latest.js",
+        "modernizr": "latest",
         "bootstrap": ">= 3.0.3"
     }
 }
