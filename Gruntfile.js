@@ -136,9 +136,9 @@ module.exports = function (grunt) {
             options: {
                 jshintrc: '.jshintrc',
                 ignores: [
-                    '.temp/lib/*',
-                    '.temp/script/**/*.min.js',
-                    '.temp/script/**/*.annotate.js'
+                    '.tmp/lib/*',
+                    '.tmp/script/**/*.min.js',
+                    '.tmp/script/**/*.annotate.js'
                 ]
             },
             dev: [
@@ -152,7 +152,7 @@ module.exports = function (grunt) {
                 'src/**/*.js'
             ],
             afterconcat: [
-                '.temp/script/**/*.js'
+                '.tmp/script/**/*.js'
             ]
         },
 
@@ -240,7 +240,7 @@ module.exports = function (grunt) {
             },
             dev: {
                 options: {
-                    base: '.temp/',
+                    base: '.tmp/',
                     open: true,
                     middleware: function (connect, options) {
                         return [
@@ -264,7 +264,7 @@ module.exports = function (grunt) {
             },
             testDev: {
                 options: {
-                    base: '.temp/',
+                    base: '.tmp/',
                     middleware: function (connect, options) {
                         return [
                             connect.static(options.base)
@@ -297,19 +297,19 @@ module.exports = function (grunt) {
          * build tasks: clean, copy, modernizr, concat, recess, uglify
          */
         clean: {
-            // delete .temp folder
-            dev: ['.temp'],
+            // delete .tmp folder
+            dev: ['.tmp'],
             // delete dist folder
             release: ['dist'],
-            // delete all unminified sources from .temp/
+            // delete all unminified sources from .tmp/
             unmin: [
-                '.temp/script/app.js',
-                '.temp/script/app.annotate.js',
-                '.temp/lib/angular.js',
-                '.temp/lib/angular-route.js',
-                '.temp/lib/bootstrap.js',
-                '.temp/lib/jquery.js',
-                '.temp/lib/modernizr.js'
+                '.tmp/script/app.js',
+                '.tmp/script/app.annotate.js',
+                '.tmp/lib/angular.js',
+                '.tmp/lib/angular-route.js',
+                '.tmp/lib/bootstrap.js',
+                '.tmp/lib/jquery.js',
+                '.tmp/lib/modernizr.js'
             ]
         },
 
@@ -319,68 +319,68 @@ module.exports = function (grunt) {
                     // copy index.html, robots.txt, license.txt
                     cwd: 'src',
                     src : ['*.txt'],
-                    dest: '.temp',
+                    dest: '.tmp',
                     expand: true
                 }, {
                     // copy angular templates
                     src: [
                         'src/app/**/*.tpl.html'
                     ],
-                    dest: '.temp/script/view/',
+                    dest: '.tmp/script/view/',
                     expand: true,
                     flatten: true
                 }, {
                     // copy content of asset dir
                     cwd: 'src/asset',
                     src : '**',
-                    dest: '.temp',
+                    dest: '.tmp',
                     expand: true
                 }, {
                     // copy bower_components: Bootstrap (fonts)
                     cwd: 'bower_components/bootstrap/dist/fonts',
                     src : ['*'],
-                    dest: '.temp/fonts',
+                    dest: '.tmp/fonts',
                     expand: true
                 }, {
                     // copy bower_components: Bootstrap (css)
                     cwd: 'bower_components/bootstrap/dist/css',
                     src : ['bootstrap.css', 'bootstrap.min.css'],
-                    dest: '.temp/css',
+                    dest: '.tmp/css',
                     expand: true
                 }, {
                     // copy bower_components: Bootstrap (js)
                     cwd: 'bower_components/bootstrap/dist/js',
                     src : ['*.js'],
-                    dest: '.temp/lib',
+                    dest: '.tmp/lib',
                     expand: true
                 }, {
                     // copy bower_components: Angular
                     cwd: 'bower_components/angular/',
                     src : ['angular.js', 'angular.min.js'],
-                    dest: '.temp/lib',
+                    dest: '.tmp/lib',
                     expand: true
                 }, {
                     // copy bower_components: Angular-Route
                     cwd: 'bower_components/angular-route/',
                     src : ['angular-route.js', 'angular-route.min.js'],
-                    dest: '.temp/lib',
+                    dest: '.tmp/lib',
                     expand: true
                 }, {
                     // copy bower_components: jQuery
                     cwd: 'bower_components/jquery/',
                     src : ['jquery.js', 'jquery.min.js'],
-                    dest: '.temp/lib',
+                    dest: '.tmp/lib',
                     expand: true
                 }, {
                     // copy bower_components: Modernizr
                     src: 'bower_components/modernizr/modernizr.js',
-                    dest: '.temp/lib/modernizr.js'
+                    dest: '.tmp/lib/modernizr.js'
                 }]
             },
             release: {
                 files: [{
-                    // copy contents of .temp/ to dist
-                    cwd: '.temp',
+                    // copy contents of .tmp/ to dist
+                    cwd: '.tmp',
                     src : ['**'],
                     dest: 'dist',
                     expand: true
@@ -391,7 +391,7 @@ module.exports = function (grunt) {
         modernizr: {
             // generate a uglified version of modernizr.js
             'devFile' : 'bower_components/modernizr/index.js',
-            'outputFile' : '.temp/lib/modernizr.min.js',
+            'outputFile' : '.tmp/lib/modernizr.min.js',
             'uglify' : true,
             'tests' : [],
             'parseFiles' : false,
@@ -425,7 +425,7 @@ module.exports = function (grunt) {
                     process: true
                 },
                 files: {
-                    '.temp/index.html': ['src/index.html']
+                    '.tmp/index.html': ['src/index.html']
                 }
             },
             build: {
@@ -444,15 +444,15 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    '.temp/script/app.js': ['src/**/*.js']
+                    '.tmp/script/app.js': ['src/**/*.js']
                 }
             }
         },
 
         ngmin: {
             app: {
-                src: ['.temp/script/app.js'],
-                dest: '.temp/script/app.annotate.js'
+                src: ['.tmp/script/app.js'],
+                dest: '.tmp/script/app.annotate.js'
             }
         },
 
@@ -465,7 +465,7 @@ module.exports = function (grunt) {
             compile: {
                 // lint and compile less files
                 files: {
-                    '.temp/css/app.css': ['src/less/*.less']
+                    '.tmp/css/app.css': ['src/less/*.less']
                 },
                 options: {
                     compile: true
@@ -474,7 +474,7 @@ module.exports = function (grunt) {
             compress: {
                 // lint, compile and compress less files
                 files: {
-                    '.temp/css/app.min.css': ['.temp/css/app.css']
+                    '.tmp/css/app.min.css': ['.tmp/css/app.css']
                 },
                 options: {
                     compress: true
@@ -499,7 +499,7 @@ module.exports = function (grunt) {
                     banner: '<%= meta.banner %>'
                 },
                 files: {
-                    '.temp/script/app.min.js': ['.temp/script/app.annotate.js']
+                    '.tmp/script/app.min.js': ['.tmp/script/app.annotate.js']
                 }
             }
         }
