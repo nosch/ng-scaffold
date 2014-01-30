@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 
     // Create build
     grunt.registerTask('build', [
-        'clean:temp',
+        'clean:dev',
         'clean:release',
         'copy:build',
         'modernizr',
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
             'jshint:afterconcat',
             'clean:unmin',
             'copy:release',
-            'clean:temp',
+            'clean:dev',
             'connect:testRelease',
             'karma:e2e'
         );
@@ -294,7 +294,7 @@ module.exports = function (grunt) {
          */
         clean: {
             // delete .temp folder
-            temp: ['.temp'],
+            dev: ['.temp'],
             // delete dist folder
             release: ['dist'],
             // delete all unminified sources from .temp/
