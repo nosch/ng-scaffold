@@ -1,6 +1,6 @@
 *.log
 .temp
-release
+dist
 reports
 node_modules
 bower_components

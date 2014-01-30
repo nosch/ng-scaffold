@@ -248,7 +248,7 @@ module.exports = function (grunt) {
             },
             release: {
                 options: {
-                    base: 'release/',
+                    base: 'dist/',
                     keepalive: true,
                     open: true,
                     middleware: function (connect, options) {
@@ -270,7 +270,7 @@ module.exports = function (grunt) {
             },
             testRelease: {
                 options: {
-                    base: 'release/',
+                    base: 'dist/',
                     middleware: function (connect, options) {
                         return [
                             connect.static(options.base)
@@ -295,8 +295,8 @@ module.exports = function (grunt) {
         clean: {
             // delete .temp folder
             temp: ['.temp'],
-            // delete release folder
-            release: ['release'],
+            // delete dist folder
+            release: ['dist'],
             // delete all unminified sources from .temp/
             unmin: [
                 '.temp/script/app.js',
@@ -375,10 +375,10 @@ module.exports = function (grunt) {
             },
             release: {
                 files: [{
-                    // copy contents of .temp/ to release
+                    // copy contents of .temp/ to dist
                     cwd: '.temp',
                     src : ['**'],
-                    dest: 'release',
+                    dest: 'dist',
                     expand: true
                 }]
             }
