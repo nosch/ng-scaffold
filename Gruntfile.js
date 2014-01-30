@@ -20,7 +20,7 @@ module.exports = function (grunt) {
 
     // Create build
     grunt.registerTask('build', [
-        'clean:dist',
+        'clean:temp',
         'clean:release',
         'copy:build',
         'modernizr',
@@ -69,7 +69,7 @@ module.exports = function (grunt) {
             'jshint:afterconcat',
             'clean:unmin',
             'copy:release',
-            'clean:dist',
+            'clean:temp',
             'connect:testRelease',
             'karma:e2e'
         );
@@ -135,7 +135,7 @@ module.exports = function (grunt) {
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
-                ignores: ['dist/lib/*', 'dist/src/**/*.min.js']
+                ignores: ['.temp/lib/*', '.temp/src/**/*.min.js']
             },
             dev: [
                 'src/**/*.js',
@@ -148,7 +148,7 @@ module.exports = function (grunt) {
                 'src/**/*.js'
             ],
             afterconcat: [
-                'dist/src/**/*.js'
+                '.temp/src/**/*.js'
             ]
         },
 
@@ -236,7 +236,7 @@ module.exports = function (grunt) {
             },
             dev: {
                 options: {
-                    base: 'dist/',
+                    base: '.temp/',
                     open: true,
                     middleware: function (connect, options) {
                         return [
@@ -260,7 +260,7 @@ module.exports = function (grunt) {
             },
             testDev: {
                 options: {
-                    base: 'dist/',
+                    base: '.temp/',
                     middleware: function (connect, options) {
                         return [
                             connect.static(options.base)
@@ -293,19 +293,19 @@ module.exports = function (grunt) {
          * build tasks: clean, copy, modernizr, concat, recess, uglify
          */
         clean: {
-            // delete dist folder
-            dist: ['dist'],
+            // delete .temp folder
+            temp: ['.temp'],
             // delete release folder
             release: ['release'],
-            // delete all unminified sources from dist/
+            // delete all unminified sources from .temp/
             unmin: [
-                'dist/script/app.js',
-                'dist/script/app.annotate.js',
-                'dist/lib/angular.js',
-                'dist/lib/angular-route.js',
-                'dist/lib/bootstrap.js',
-                'dist/lib/jquery.js',
-                'dist/lib/modernizr.js'
+                '.temp/script/app.js',
+                '.temp/script/app.annotate.js',
+                '.temp/lib/angular.js',
+                '.temp/lib/angular-route.js',
+                '.temp/lib/bootstrap.js',
+                '.temp/lib/jquery.js',
+                '.temp/lib/modernizr.js'
             ]
         },
 
@@ -315,68 +315,68 @@ module.exports = function (grunt) {
                     // copy index.html, robots.txt, license.txt
                     cwd: 'src',
                     src : ['*.txt'],
-                    dest: 'dist',
+                    dest: '.temp',
                     expand: true
                 }, {
                     // copy angular templates
                     src: [
                         'src/app/**/*.tpl.html'
                     ],
-                    dest: 'dist/script/view/',
+                    dest: '.temp/script/view/',
                     expand: true,
                     flatten: true
                 }, {
                     // copy content of asset dir
                     cwd: 'src/asset',
                     src : '**',
-                    dest: 'dist',
+                    dest: '.temp',
                     expand: true
                 }, {
                     // copy bower_components: Bootstrap (fonts)
                     cwd: 'bower_components/bootstrap/dist/fonts',
                     src : ['*'],
-                    dest: 'dist/fonts',
+                    dest: '.temp/fonts',
                     expand: true
                 }, {
                     // copy bower_components: Bootstrap (css)
                     cwd: 'bower_components/bootstrap/dist/css',
                     src : ['bootstrap.css', 'bootstrap.min.css'],
-                    dest: 'dist/css',
+                    dest: '.temp/css',
                     expand: true
                 }, {
                     // copy bower_components: Bootstrap (js)
                     cwd: 'bower_components/bootstrap/dist/js',
                     src : ['*.js'],
-                    dest: 'dist/lib',
+                    dest: '.temp/lib',
                     expand: true
                 }, {
                     // copy bower_components: Angular
                     cwd: 'bower_components/angular/',
                     src : ['angular.js', 'angular.min.js'],
-                    dest: 'dist/lib',
+                    dest: '.temp/lib',
                     expand: true
                 }, {
                     // copy bower_components: Angular-Route
                     cwd: 'bower_components/angular-route/',
                     src : ['angular-route.js', 'angular-route.min.js'],
-                    dest: 'dist/lib',
+                    dest: '.temp/lib',
                     expand: true
                 }, {
                     // copy bower_components: jQuery
                     cwd: 'bower_components/jquery/',
                     src : ['jquery.js', 'jquery.min.js'],
-                    dest: 'dist/lib',
+                    dest: '.temp/lib',
                     expand: true
                 }, {
                     // copy bower_components: Modernizr
-                    src: 'bower_components/modernizr/index.js',
-                    dest: 'dist/lib/modernizr.js'
+                    src: 'bower_components/modernizr/modernizr.js',
+                    dest: '.temp/lib/modernizr.js'
                 }]
             },
             release: {
                 files: [{
-                    // copy contents of dist/ to release
-                    cwd: 'dist',
+                    // copy contents of .temp/ to release
+                    cwd: '.temp',
                     src : ['**'],
                     dest: 'release',
                     expand: true
@@ -387,7 +387,7 @@ module.exports = function (grunt) {
         modernizr: {
             // generate a uglified version of modernizr.js
             'devFile' : 'bower_components/modernizr/index.js',
-            'outputFile' : 'dist/lib/modernizr.min.js',
+            'outputFile' : '.temp/lib/modernizr.min.js',
             'uglify' : true,
             'tests' : [],
             'parseFiles' : false,
@@ -421,7 +421,7 @@ module.exports = function (grunt) {
                     process: true
                 },
                 files: {
-                    'dist/index.html': ['src/index.html']
+                    '.temp/index.html': ['src/index.html']
                 }
             },
             build: {
@@ -440,15 +440,15 @@ module.exports = function (grunt) {
                     }
                 },
                 files: {
-                    'dist/script/app.js': ['src/**/*.js']
+                    '.temp/script/app.js': ['src/**/*.js']
                 }
             }
         },
 
         ngmin: {
             app: {
-                src: ['dist/script/app.js'],
-                dest: 'dist/script/app.annotate.js'
+                src: ['.temp/script/app.js'],
+                dest: '.temp/script/app.annotate.js'
             }
         },
 
@@ -461,7 +461,7 @@ module.exports = function (grunt) {
             compile: {
                 // lint and compile less files
                 files: {
-                    'dist/css/app.css': ['src/less/*.less']
+                    '.temp/css/app.css': ['src/less/*.less']
                 },
                 options: {
                     compile: true
@@ -470,7 +470,7 @@ module.exports = function (grunt) {
             compress: {
                 // lint, compile and compress less files
                 files: {
-                    'dist/css/app.min.css': ['dist/css/app.css']
+                    '.temp/css/app.min.css': ['.temp/css/app.css']
                 },
                 options: {
                     compress: true
@@ -495,7 +495,7 @@ module.exports = function (grunt) {
                     banner: '<%= meta.banner %>'
                 },
                 files: {
-                    'dist/script/app.min.js': ['dist/script/app.annotate.js']
+                    '.temp/script/app.min.js': ['.temp/script/app.annotate.js']
                 }
             }
         }
