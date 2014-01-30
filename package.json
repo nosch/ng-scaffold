@@ -39,6 +39,7 @@
         "grunt-contrib-concat": ">=0.3.0",
         "grunt-contrib-uglify": ">=0.2.7",
         "grunt-plato": ">=0.2.1",
-        "grunt-ngmin": "latest"
+        "grunt-ngmin": "latest",
+        "grunt-usemin": ">=2.0.2"
     }
 }

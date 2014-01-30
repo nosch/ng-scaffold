@@ -24,7 +24,8 @@ module.exports = function (grunt) {
         'clean:release',
         'copy:build',
         'modernizr',
-        'concat',
+        'concat:index',
+        'concat:build',
         'ngmin',
         'recess',
         'uglify'
@@ -65,6 +66,7 @@ module.exports = function (grunt) {
         grunt.task.run(
             'jshint:release',
             'build',
+            'concat:release',
             'karma:unit',
             'jshint:afterconcat',
             'clean:unmin',
@@ -445,6 +447,11 @@ module.exports = function (grunt) {
                 },
                 files: {
                     '.tmp/script/app.js': ['src/**/*.js']
+                }
+            },
+            release: {
+                files: {
+                    '.tmp/lib/vendor.min.js': ['.tmp/**/*.min.js'],
                 }
             }
         },
