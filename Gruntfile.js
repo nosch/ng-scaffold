@@ -135,7 +135,11 @@ module.exports = function (grunt) {
         jshint: {
             options: {
                 jshintrc: '.jshintrc',
-                ignores: ['.temp/lib/*', '.temp/script/**/*.min.js', '.temp/script/**/*.annotate.js']
+                ignores: [
+                    '.temp/lib/*',
+                    '.temp/script/**/*.min.js',
+                    '.temp/script/**/*.annotate.js'
+                ]
             },
             dev: [
                 'src/**/*.js',
