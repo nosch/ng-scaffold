@@ -10,9 +10,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link rel="shortcut icon" type="image/png" href="favicon.ico">
 
-        <!-- Le CSS-->
-        <link rel="stylesheet" href="css/bootstrap<%= meta.minSuffix %>.css">
-        <link rel="stylesheet" href="css/app<%= meta.minSuffix %>.css">
+        <!-- build:css css/styles.css -->
+        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="../src/asset/css/common.css">
+        <link rel="stylesheet" href="../src/asset/css/app.css">
+        <!-- endbuild -->
 
         <title>Angular Scaffold</title>
     </head>
@@ -22,16 +24,26 @@
         <![endif]-->
 
         <!-- Header, main content area and footer -->
-        <div ng-include="'/script/view/header.tpl.html'"></div>
+        <div ng-include="'view/header.tpl.html'"></div>
         <div ng-view class="container"></div>
-        <div ng-include="'/script/view/footer.tpl.html'"></div>
+        <div ng-include="'view/footer.tpl.html'"></div>
 
-        <!-- Le JavaScript -->
-        <script src="lib/modernizr<%= meta.minSuffix %>.js"></script>
-        <script src="lib/jquery<%= meta.minSuffix %>.js"></script>
-        <script src="lib/bootstrap<%= meta.minSuffix %>.js"></script>
-        <script src="lib/angular<%= meta.minSuffix %>.js"></script>
-        <script src="lib/angular-route<%= meta.minSuffix %>.js"></script>
-        <script src="script/app<%= meta.minSuffix %>.js"></script>
+        <!-- build:js js/vendor.js -->
+        <script src="../bower_components/modernizr/modernizr.js"></script>
+        <script src="../bower_components/jquery/jquery.js"></script>
+        <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js js/app.js -->
+        <script src="../src/app/app.js"></script>
+        <script src="../src/app/config/config.js"></script>
+        <script src="../src/app/module/user/config/config.js"></script>
+        <script src="../src/app/module/user/user.js"></script>
+        <script src="../src/app/module/user/user-account.js"></script>
+        <script src="../src/app/module/user/user-dashboard.js"></script>
+        <script src="../src/app/module/user/user-profile.js"></script>
+        <!-- endbuild -->
     </body>
 </html>

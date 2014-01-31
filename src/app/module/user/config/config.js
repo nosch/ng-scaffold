@@ -15,17 +15,17 @@ angular.module('user.config', [
         $routeProvider
             .when('/user/dashboard', {
                 index: 'user',
-                templateUrl: '/script/view/dashboard.tpl.html',
+                templateUrl: 'view/dashboard.tpl.html',
                 controller: 'UserCtrl'
             })
             .when('/user/account', {
                 index: 'user',
-                templateUrl: '/script/view/account.tpl.html',
+                templateUrl: 'view/account.tpl.html',
                 controller: 'UserCtrl'
             })
             .when('/user/profile', {
                 index: 'user',
-                templateUrl: '/script/view/profile.tpl.html',
+                templateUrl: 'view/profile.tpl.html',
                 controller: 'UserCtrl'
             });
     });

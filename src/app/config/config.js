@@ -20,16 +20,16 @@ angular.module('application.config', [
         $routeProvider
             .when('/home', {
                 index: 'home',
-                templateUrl: '/script/view/home.tpl.html',
+                templateUrl: 'view/home.tpl.html',
                 controller: 'ApplicationCtrl'
             })
             .when('/about', {
                 index: 'about',
-                templateUrl: '/script/view/about.tpl.html'
+                templateUrl: 'view/about.tpl.html'
             })
             .when('/contact', {
                 index: 'contact',
-                templateUrl: '/script/view/contact.tpl.html'
+                templateUrl: 'view/contact.tpl.html'
             })
             .otherwise({
                 redirectTo: '/home'
