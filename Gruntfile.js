@@ -27,9 +27,12 @@ module.exports = function (grunt) {
             distDir: 'build/dist/'
         },
 
+        // @todo html2js!
+        // @todo concurrent task
+
         clean: {
-            build: ['<%= scaffold.tmpDir %>'],
-            release: ['<%= scaffold.distDir %>'],
+            tmp: ['<%= scaffold.tmpDir %>'],
+            dist: ['<%= scaffold.distDir %>'],
             fonts: ['<%= scaffold.sourceDir %>asset/fonts/']
         },
 
@@ -53,14 +56,14 @@ module.exports = function (grunt) {
         },
 
         copy: {
-            prepare: {
+            fonts: {
                 // Bower fonts
                 cwd: '<%= scaffold.bowerDir %>bootstrap/dist/',
                 src : ['fonts/*.*'],
                 dest: '<%= scaffold.sourceDir %>asset/',
                 expand: true
             },
-            build: {
+            tmp: {
                 files: [{
                     // HTML index
                     cwd: '<%= scaffold.sourceDir %>',
@@ -83,8 +86,7 @@ module.exports = function (grunt) {
                 }]
             },
 
-            // Optimize: copy complete folder structure
-            release: {
+            dist: {
                 files: [{
                     // HTML index and templates
                     cwd: '<%= scaffold.htmlDir %>',
@@ -99,27 +101,81 @@ module.exports = function (grunt) {
                     expand: true
                 }]
             }
-        }
+        },
 
-        // @todo organize task: dev -> release -> test -> server
-        // @todo html2js!
-        // @todo concurrent task
+        connect: {
+            options: {
+                hostname: 'localhost',
+                port: 8080
+            },
+            dev: {
+                options: {
+                    base: '<%= scaffold.distDir %>',
+                    open: true,
+                    middleware: function (connect, options) {
+                        return [
+                            require('connect-livereload')(),
+                            connect.static(options.base)
+                        ];
+                    }
+                }
+            }
+        },
+
+        watch: {
+            dev: {
+                options: {
+                    livereload: true,
+                    spawn: false
+                },
+                files: [
+                    '<%= scaffold.sourceDir %>index.html',
+                    '<%= scaffold.distDir %>app/**/*.tpl.html',
+                    '<%= scaffold.distDir %>css/*.css',
+                    '<%= scaffold.distDir %>**/*.js',
+                    'Gruntfile.js'
+                ],
+                tasks: [
+                    'build'
+                ]
+            }
+        }
     });
 
+    grunt.registerTask('default', ['server']);
+
     // Task registration
-    grunt.registerTask('default', [
+    grunt.registerTask('prepare', [
         'clean',
-        'copy:prepare',
+        'copy:fonts',
         'useminPrepare',
-        'copy:build',
-        'concat',
+        'copy:tmp',
+        'clean:fonts',
+        'concat'
+    ]);
+
+    // Task registration
+    grunt.registerTask('build', [
+        'prepare',
         'ngmin',
         'uglify',
         'cssmin',
         'usemin',
-        'copy:release',
-        'clean:fonts'
+        'copy:dist'
     ]);
 
-    grunt.registerTask('asset', ['copy:prepare', 'copy:asset']);
+    // Task registration
+    grunt.registerTask('server', [
+        'build',
+        'connect',
+        'watch'
+        // @todo run test tasks
+    ]);
+
+    // Task registration
+    grunt.registerTask('release', [
+        'build',
+        'clean:tmp'
+        // @todo run test tasks
+    ]);
 };
