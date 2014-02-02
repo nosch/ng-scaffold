@@ -9,9 +9,9 @@ The main idea behind this little project is to learn how to build an application
 ## 3. Stack
 ### The application
 
-- AngularJS v1.2.8
-- jQuery v2.0
-- Twitter Bootstrap v3.0
+- AngularJS v1.2.10
+- jQuery v2.1.0
+- Twitter Bootstrap v3.0.3
 - Modernizr v2.7.1
 
 ### The build process
@@ -32,6 +32,6 @@ The main idea behind this little project is to learn how to build an application
 ## 5. How to use
 Start to develop, to test or to build an application with one of the following grunt tasks.
 
-- $ grunt dev-server
-- $ grunt release && grunt release-server
-- $ grunt test
+- $ grunt build
+- $ grunt server (default)
+- $ grunt release
