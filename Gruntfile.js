@@ -61,7 +61,17 @@ module.exports = function (grunt) {
                     module: 'template.app',
                     useStrict: true,
                     quoteChar: '\'',
-                    indentString: '    '
+                    indentString: '    ',
+                    htmlmin: {
+                        collapseBooleanAttributes: true,
+                        collapseWhitespace: true,
+                        removeAttributeQuotes: true,
+                        removeComments: true,
+                        removeEmptyAttributes: true,
+                        removeRedundantAttributes: true,
+                        removeScriptTypeAttributes: true,
+                        removeStyleLinkTypeAttributes: true
+                    }
                 },
                 src: ['<%= scaffold.sourceDir %>app/**/*.tpl.html'],
                 dest: '<%= scaffold.sourceDir %>app/module/template/template.js'
