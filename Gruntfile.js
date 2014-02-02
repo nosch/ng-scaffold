@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         },
 
         usemin: {
-            html: '.tmp/html/index.html'
+            html: '.tmp/index.html'
         },
 
         ngmin: {
@@ -44,23 +44,20 @@ module.exports = function (grunt) {
         copy: {
             build: {
                 files: [{
-                    src: 'src/index.html',
-                    dest: '.tmp/html/index.html'
-                }, {
-                    src: 'src/robot.txt',
-                    dest: '.tmp/html/robot.txt'
-                }, {
-                    src: 'src/asset/favicon.ico',
-                    dest: '.tmp/asset/favicon.ico'
-                }, {
+                    cwd: 'src/',
+                    src: ['*.*'],
+                    dest: '.tmp/',
+                    expand: true,
+                    flatten: true
+                },{
                     cwd: 'bower_components/bootstrap/dist/fonts',
                     src : ['*'],
-                    dest: '.tmp/asset/fonts',
+                    dest: '.tmp/asset/fonts/',
                     expand: true
                 }, {
                     cwd: 'src/asset/img/',
                     src : ['*'],
-                    dest: '.tmp/asset/img',
+                    dest: '.tmp/asset/img/',
                     expand: true
                 }, {
                     cwd: 'src/app/',
@@ -74,8 +71,11 @@ module.exports = function (grunt) {
             // Optimize: copy complete folder structure
             release: {
                 files: [{
-                    src: '.tmp/html/index.html',
-                    dest: 'dist/index.html'
+                    cwd: '.tmp/',
+                    src : ['*.*'],
+                    dest: 'dist/',
+                    expand: true,
+                    flatten: true
                 }, {
                     cwd: '.tmp/html/view/',
                     src : ['*'],
