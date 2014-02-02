@@ -169,9 +169,9 @@ module.exports = function (grunt) {
         }
     });
 
+    // Task registration
     grunt.registerTask('default', ['server']);
 
-    // Task registration
     grunt.registerTask('prepare', [
         'clean',
         'copy:fonts',
@@ -184,8 +184,6 @@ module.exports = function (grunt) {
     // Task registration
     grunt.registerTask('build', [
         'prepare',
-        'jshint',
-        'karma:default',
         'ngmin',
         'uglify',
         'cssmin',
@@ -196,6 +194,8 @@ module.exports = function (grunt) {
     // Task registration
     grunt.registerTask('server', [
         'build',
+        'jshint',
+        'karma:default',
         'connect',
         'watch'
     ]);
