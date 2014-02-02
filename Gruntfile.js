@@ -15,76 +15,91 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // project settings
+        // Project paths
         scaffold: {
-            buildDir: '.tmp',
-            releaseDir: 'dist'
+            sourceDir: 'src/',
+            bowerDir: 'bower_components/',
+            buildRoot: 'build/',
+            tmpDir: 'build/.tmp/',
+            assetDir: 'build/.tmp/asset/',
+            concatDir: 'build/.tmp/concat/',
+            htmlDir: 'build/.tmp/html/',
+            distDir: 'build/dist/'
         },
 
         clean: {
-            build: ['<%= scaffold.buildDir %>'],
-            release: ['<%= scaffold.releaseDir %>']
+            build: ['<%= scaffold.tmpDir %>'],
+            release: ['<%= scaffold.distDir %>']
         },
 
         useminPrepare: {
-            html: 'src/index.html'
+            html: '<%= scaffold.sourceDir %>index.html',
+            options: {
+                staging: '<%= scaffold.tmpDir %>',
+                dest: '<%= scaffold.distDir %>'
+            }
         },
 
         usemin: {
-            html: '.tmp/index.html'
+            html: '<%= scaffold.htmlDir %>index.html'
         },
 
         ngmin: {
             app: {
-                src: ['.tmp/concat/js/app.js'],
-                dest: '.tmp/concat/js/app.js'
+                src: ['<%= scaffold.concatDir %>js/app.js'],
+                dest: '<%= scaffold.concatDir %>js/app.js'
             }
         },
 
         copy: {
             build: {
                 files: [{
-                    cwd: 'src/',
-                    src: ['*.*'],
-                    dest: '.tmp/',
-                    expand: true,
-                    flatten: true
-                },{
-                    cwd: 'bower_components/bootstrap/dist/fonts',
-                    src : ['*'],
-                    dest: '.tmp/asset/fonts/',
+                    // HTML index
+                    cwd: '<%= scaffold.sourceDir %>',
+                    src: ['index.html'],
+                    dest: '<%= scaffold.htmlDir %>',
                     expand: true
                 }, {
-                    cwd: 'src/asset/img/',
-                    src : ['*'],
-                    dest: '.tmp/asset/img/',
-                    expand: true
-                }, {
-                    cwd: 'src/app/',
+                    // HTML templates
+                    cwd: '<%= scaffold.sourceDir %>app/',
                     src : ['**/*.tpl.html'],
-                    dest: '.tmp/html/view/',
+                    dest: '<%= scaffold.htmlDir %>view/',
                     expand: true,
                     flatten: true
+                }, {
+                    // Bootstrap fonts
+                    cwd: '<%= scaffold.bowerDir %>bootstrap/dist/',
+                    src : ['fonts/*.*'],
+                    dest: '<%= scaffold.assetDir %>',
+                    expand: true
+                }, {
+                    // Images
+                    cwd: '<%= scaffold.sourceDir %>asset/',
+                    src : ['img/**/*.*'],
+                    dest: '<%= scaffold.assetDir %>',
+                    expand: true
+                }, {
+                    // Favicon
+                    cwd: '<%= scaffold.sourceDir %>asset/',
+                    src: ['favicon.ico'],
+                    dest: '<%= scaffold.assetDir %>',
+                    expand: true
                 }]
             },
 
             // Optimize: copy complete folder structure
             release: {
                 files: [{
-                    cwd: '.tmp/',
-                    src : ['*.*'],
-                    dest: 'dist/',
-                    expand: true,
-                    flatten: true
-                }, {
-                    cwd: '.tmp/html/view/',
-                    src : ['*'],
-                    dest: 'dist/view/',
+                    // HTML index and templates
+                    cwd: '<%= scaffold.htmlDir %>',
+                    src : ['**'],
+                    dest: '<%= scaffold.distDir %>',
                     expand: true
                 }, {
-                    cwd: '.tmp/asset/',
-                    src : ['**/*'],
-                    dest: 'dist/',
+                    // Fonts and images
+                    cwd: '<%= scaffold.assetDir %>',
+                    src : ['**'],
+                    dest: '<%= scaffold.distDir %>',
                     expand: true
                 }]
             }
@@ -96,7 +111,6 @@ module.exports = function (grunt) {
         // @todo optimize images
         // @todo minifize index.html
         // @todo html2js!
-        // @todo clean task
         // @todo concurrent task
     });
 
