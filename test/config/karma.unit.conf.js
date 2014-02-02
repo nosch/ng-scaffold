@@ -28,19 +28,19 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
         reporters: [
-            'progress',
-            'coverage'
+            'progress'
+            // 'coverage'
         ],
 
         // add preprocessors
         preprocessors: {
-            'src/**/*.js': ['coverage']
+            // 'src/**/*.js': ['coverage']
         },
 
         // configure code coverage
         coverageReporter: {
-            type : 'html',
-            dir : 'test/coverage/'
+            // type : 'html'
+            // dir : 'test/coverage/'
         },
 
         // web server port

@@ -117,10 +117,17 @@ module.exports = function (grunt) {
                 '<%= scaffold.testDir %>**/*.scenario.js',
                 '<%= scaffold.testDir %>**/*.conf.js',
                 'Gruntfile.js'
-            ],
-            afterconcat: [
-                '<%= scaffold.concatDir %>**/*.js'
             ]
+        },
+
+        karma: {
+            default: {
+                configFile: 'test/config/karma.unit.conf.js',
+                browsers: ['PhantomJS']
+            },
+            unit: {
+                configFile: 'test/config/karma.unit.conf.js',
+            }
         },
 
         connect: {
@@ -178,6 +185,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'prepare',
         'jshint',
+        'karma:default',
         'ngmin',
         'uglify',
         'cssmin',
@@ -190,15 +198,13 @@ module.exports = function (grunt) {
         'build',
         'connect',
         'watch'
-        // @todo run lint task
-        // @todo run test tasks
     ]);
 
     // Task registration
     grunt.registerTask('release', [
         'build',
+        'jshint',
+        'karma:unit',
         'clean:tmp'
-        // @todo run lint task
-        // @todo run test tasks
     ]);
 };
