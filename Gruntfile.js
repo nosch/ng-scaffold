@@ -29,7 +29,8 @@ module.exports = function (grunt) {
 
         clean: {
             build: ['<%= scaffold.tmpDir %>'],
-            release: ['<%= scaffold.distDir %>']
+            release: ['<%= scaffold.distDir %>'],
+            fonts: ['<%= scaffold.sourceDir %>asset/fonts/']
         },
 
         useminPrepare: {
@@ -52,6 +53,13 @@ module.exports = function (grunt) {
         },
 
         copy: {
+            prepare: {
+                // Bower fonts
+                cwd: '<%= scaffold.bowerDir %>bootstrap/dist/',
+                src : ['fonts/*.*'],
+                dest: '<%= scaffold.sourceDir %>asset/',
+                expand: true
+            },
             build: {
                 files: [{
                     // HTML index
@@ -67,21 +75,9 @@ module.exports = function (grunt) {
                     expand: true,
                     flatten: true
                 }, {
-                    // Bootstrap fonts
-                    cwd: '<%= scaffold.bowerDir %>bootstrap/dist/',
-                    src : ['fonts/*.*'],
-                    dest: '<%= scaffold.assetDir %>',
-                    expand: true
-                }, {
-                    // Images
+                    // Assets (fonts, img, ico)
                     cwd: '<%= scaffold.sourceDir %>asset/',
-                    src : ['img/**/*.*'],
-                    dest: '<%= scaffold.assetDir %>',
-                    expand: true
-                }, {
-                    // Favicon
-                    cwd: '<%= scaffold.sourceDir %>asset/',
-                    src: ['favicon.ico'],
+                    src : ['img/**/*.*', 'fonts/*.*', 'favicon.ico'],
                     dest: '<%= scaffold.assetDir %>',
                     expand: true
                 }]
@@ -117,6 +113,7 @@ module.exports = function (grunt) {
     // Task registration
     grunt.registerTask('default', [
         'clean',
+        'copy:prepare',
         'useminPrepare',
         'copy:build',
         'concat',
@@ -124,8 +121,9 @@ module.exports = function (grunt) {
         'uglify',
         'cssmin',
         'usemin',
-        'copy:release'
+        'copy:release',
+        'clean:fonts'
     ]);
 
-
+    grunt.registerTask('asset', ['copy:prepare', 'copy:asset']);
 };

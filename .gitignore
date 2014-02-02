@@ -8,5 +8,7 @@ dist
 .idea
 *.log
 
+src/asset/fonts/*
+
 reports
 test/coverage
