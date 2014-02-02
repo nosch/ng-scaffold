@@ -34,6 +34,7 @@ module.exports = function (grunt) {
         clean: {
             tmp: ['<%= scaffold.tmpDir %>'],
             dist: ['<%= scaffold.distDir %>'],
+            templates: ['<%= scaffold.sourceDir %>app/module/template/'],
             fonts: ['<%= scaffold.sourceDir %>asset/fonts/']
         },
 
@@ -56,6 +57,19 @@ module.exports = function (grunt) {
             }
         },
 
+        html2js: {
+            app: {
+                options: {
+                    module: 'template.app',
+                    useStrict: true,
+                    quoteChar: '\'',
+                    indentString: '    '
+                },
+                src: ['<%= scaffold.sourceDir %>app/**/*.tpl.html'],
+                dest: '<%= scaffold.sourceDir %>app/module/template/template.js'
+            }
+        },
+
         copy: {
             fonts: {
                 // Bower fonts
@@ -72,13 +86,6 @@ module.exports = function (grunt) {
                     dest: '<%= scaffold.htmlDir %>',
                     expand: true
                 }, {
-                    // HTML templates
-                    cwd: '<%= scaffold.sourceDir %>app/',
-                    src : ['**/*.tpl.html'],
-                    dest: '<%= scaffold.htmlDir %>view/',
-                    expand: true,
-                    flatten: true
-                }, {
                     // Assets (fonts, img, ico)
                     cwd: '<%= scaffold.sourceDir %>',
                     src : ['asset/**/*.*'],
@@ -91,7 +98,7 @@ module.exports = function (grunt) {
                 files: [{
                     // HTML index and templates
                     cwd: '<%= scaffold.htmlDir %>',
-                    src : ['**'],
+                    src : ['index.html'],
                     dest: '<%= scaffold.distDir %>',
                     expand: true
                 }, {
@@ -175,9 +182,9 @@ module.exports = function (grunt) {
     grunt.registerTask('prepare', [
         'clean',
         'copy:fonts',
+        'html2js',
         'useminPrepare',
         'copy:tmp',
-        'clean:fonts',
         'concat'
     ]);
 
@@ -188,7 +195,10 @@ module.exports = function (grunt) {
         'uglify',
         'cssmin',
         'usemin',
-        'copy:dist'
+        'copy:dist',
+        'clean:fonts',
+        'clean:templates',
+        'clean:tmp'
     ]);
 
     // Task registration
@@ -204,7 +214,6 @@ module.exports = function (grunt) {
     grunt.registerTask('release', [
         'build',
         'jshint',
-        'karma:unit',
-        'clean:tmp'
+        'karma:unit'
     ]);
 };

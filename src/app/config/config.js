@@ -4,7 +4,8 @@
  */
 angular.module('application.config', [
         'user',
-        'ngRoute'
+        'ngRoute',
+        'template.app'
     ])
 
     .constant('NAV_ITEMS', [
@@ -20,16 +21,16 @@ angular.module('application.config', [
         $routeProvider
             .when('/home', {
                 index: 'home',
-                templateUrl: 'view/home.tpl.html',
+                templateUrl: 'app/view/home.tpl.html',
                 controller: 'ApplicationCtrl'
             })
             .when('/about', {
                 index: 'about',
-                templateUrl: 'view/about.tpl.html'
+                templateUrl: 'app/view/about.tpl.html'
             })
             .when('/contact', {
                 index: 'contact',
-                templateUrl: 'view/contact.tpl.html'
+                templateUrl: 'app/view/contact.tpl.html'
             })
             .otherwise({
                 redirectTo: '/home'

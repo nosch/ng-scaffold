@@ -28,7 +28,7 @@
         "connect-livereload": ">=0.3.2",
         "grunt-karma": ">=0.6.2",
         "grunt-usemin": ">=2.0.2",
-        "grunt-concurrent": ">=0.4.3",
+        "grunt-html2js": "0.2.4",
         "grunt-contrib-cssmin": ">=0.7.0",
         "grunt-contrib-clean": ">=0.5.0",
         "grunt-contrib-copy": ">=0.5.0",

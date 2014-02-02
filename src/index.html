@@ -29,9 +29,9 @@
         <![endif]-->
 
         <!-- Header, main content area and footer -->
-        <div ng-include="'view/header.tpl.html'"></div>
+        <div ng-include="'app/view/header.tpl.html'"></div>
         <div ng-view class="container"></div>
-        <div ng-include="'view/footer.tpl.html'"></div>
+        <div ng-include="'app/view/footer.tpl.html'"></div>
 
         <!-- build:js js/vendor.js -->
         <script src="../bower_components/modernizr/modernizr.js"></script>
@@ -44,6 +44,7 @@
         <!-- build:js js/app.js -->
         <script src="../src/app/app.js"></script>
         <script src="../src/app/config/config.js"></script>
+        <script src="../src/app/module/template/template.js"></script>
         <script src="../src/app/module/user/config/config.js"></script>
         <script src="../src/app/module/user/user.js"></script>
         <script src="../src/app/module/user/user-account.js"></script>
