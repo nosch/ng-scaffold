@@ -18,6 +18,7 @@ module.exports = function (grunt) {
         // Project paths
         scaffold: {
             sourceDir: 'src/',
+            testDir: 'test/',
             bowerDir: 'bower_components/',
             buildRoot: 'build/',
             tmpDir: 'build/.tmp/',
@@ -103,12 +104,31 @@ module.exports = function (grunt) {
             }
         },
 
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc',
+                ignores: [
+                    '<%= scaffold.concatDir %>**/vendor.js'
+                ]
+            },
+            default: [
+                '<%= scaffold.sourceDir %>**/*.js',
+                '<%= scaffold.testDir %>**/*.spec.js',
+                '<%= scaffold.testDir %>**/*.scenario.js',
+                '<%= scaffold.testDir %>**/*.conf.js',
+                'Gruntfile.js'
+            ],
+            afterconcat: [
+                '<%= scaffold.concatDir %>**/*.js'
+            ]
+        },
+
         connect: {
             options: {
                 hostname: 'localhost',
                 port: 8080
             },
-            dev: {
+            default: {
                 options: {
                     base: '<%= scaffold.distDir %>',
                     open: true,
@@ -123,7 +143,7 @@ module.exports = function (grunt) {
         },
 
         watch: {
-            dev: {
+            default: {
                 options: {
                     livereload: true,
                     spawn: false
@@ -157,6 +177,7 @@ module.exports = function (grunt) {
     // Task registration
     grunt.registerTask('build', [
         'prepare',
+        'jshint',
         'ngmin',
         'uglify',
         'cssmin',
@@ -169,6 +190,7 @@ module.exports = function (grunt) {
         'build',
         'connect',
         'watch'
+        // @todo run lint task
         // @todo run test tasks
     ]);
 
@@ -176,6 +198,7 @@ module.exports = function (grunt) {
     grunt.registerTask('release', [
         'build',
         'clean:tmp'
+        // @todo run lint task
         // @todo run test tasks
     ]);
 };
