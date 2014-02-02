@@ -2,7 +2,6 @@
  * ng-scaffold
  * Grunt task runner configuration.
  */
-
 module.exports = function (grunt) {
     'use strict';
 
@@ -15,6 +14,17 @@ module.exports = function (grunt) {
     // Task configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        // project settings
+        scaffold: {
+            buildDir: '.tmp',
+            releaseDir: 'dist'
+        },
+
+        clean: {
+            build: ['<%= scaffold.buildDir %>'],
+            release: ['<%= scaffold.releaseDir %>']
+        },
 
         useminPrepare: {
             html: 'src/index.html'
@@ -92,6 +102,7 @@ module.exports = function (grunt) {
 
     // Task registration
     grunt.registerTask('default', [
+        'clean',
         'useminPrepare',
         'copy:build',
         'concat',
