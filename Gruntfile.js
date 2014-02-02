@@ -76,9 +76,9 @@ module.exports = function (grunt) {
                     flatten: true
                 }, {
                     // Assets (fonts, img, ico)
-                    cwd: '<%= scaffold.sourceDir %>asset/',
-                    src : ['img/**/*.*', 'fonts/*.*', 'favicon.ico'],
-                    dest: '<%= scaffold.assetDir %>',
+                    cwd: '<%= scaffold.sourceDir %>',
+                    src : ['asset/**/*.*'],
+                    dest: '<%= scaffold.tmpDir %>',
                     expand: true
                 }]
             },
@@ -102,10 +102,6 @@ module.exports = function (grunt) {
         }
 
         // @todo organize task: dev -> release -> test -> server
-        // @todo copy complete folder structure to dist!!!
-        // @todo copy assets in one process
-        // @todo optimize images
-        // @todo minifize index.html
         // @todo html2js!
         // @todo concurrent task
     });
