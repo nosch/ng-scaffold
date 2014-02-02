@@ -9,6 +9,7 @@ dist
 *.log
 
 src/asset/fonts/*
+src/app/module/template/*
 
 reports
 test/coverage

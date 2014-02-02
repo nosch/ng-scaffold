@@ -33,8 +33,6 @@ module.exports = function (grunt) {
 
         clean: {
             tmp: ['<%= scaffold.tmpDir %>'],
-            dist: ['<%= scaffold.distDir %>'],
-            templates: ['<%= scaffold.sourceDir %>app/module/template/'],
             fonts: ['<%= scaffold.sourceDir %>asset/fonts/']
         },
 
@@ -197,8 +195,6 @@ module.exports = function (grunt) {
         'usemin',
         'copy:dist',
         'clean:fonts',
-        'clean:templates',
-        'clean:tmp'
     ]);
 
     // Task registration
@@ -214,6 +210,7 @@ module.exports = function (grunt) {
     grunt.registerTask('release', [
         'build',
         'jshint',
-        'karma:unit'
+        'karma:unit',
+        'clean:tmp',
     ]);
 };
