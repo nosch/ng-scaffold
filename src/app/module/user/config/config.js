@@ -6,26 +6,40 @@ angular.module('user.config', [
         'user.dashboard',
         'user.account',
         'user.profile',
-        'ngRoute'
+        'ui.router'
     ])
 
-    .config(function ($routeProvider) {
+    .constant('USER_MODULES', [
+        {title: 'Dashboard', state: 'user.dashboard', icon: ''},
+        {title: 'Account', state: 'user.account', icon: ''},
+        {title: 'Profile', state: 'user.profile', icon: ''}
+    ])
+
+    .config(function ($stateProvider, $urlRouterProvider) {
         'use strict';
 
-        $routeProvider
-            .when('/user/dashboard', {
-                index: 'user',
-                templateUrl: 'app/module/user/view/dashboard.tpl.html',
+        $urlRouterProvider.otherwise('/user');
+
+        $stateProvider
+            .state('user', {
+                url: '/user',
+                templateUrl: 'app/module/user/view/user.tpl.html',
+                controller: 'UserCtrl',
+                abstract: true
+            })
+            .state('user.dashboard', {
+                url: '/dashboard',
+                templateUrl: 'app/module/user/view/user-dashboard.tpl.html',
                 controller: 'UserCtrl'
             })
-            .when('/user/account', {
-                index: 'user',
-                templateUrl: 'app/module/user/view/account.tpl.html',
+            .state('user.account', {
+                url: '/account',
+                templateUrl: 'app/module/user/view/user-account.tpl.html',
                 controller: 'UserCtrl'
             })
-            .when('/user/profile', {
-                index: 'user',
-                templateUrl: 'app/module/user/view/profile.tpl.html',
+            .state('user.profile', {
+                url: '/profile',
+                templateUrl: 'app/module/user/view/user-profile.tpl.html',
                 controller: 'UserCtrl'
             });
     });

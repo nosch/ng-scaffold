@@ -6,20 +6,21 @@ angular.module('application', [
         'application.config'
     ])
 
-    .controller('ApplicationCtrl', function ($scope) {
+    .run(function ($rootScope, $state, $stateParams) {
         'use strict';
 
-        $scope.heading = 'Angular Scaffold!';
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
     })
 
-    .controller('HeaderCtrl', function ($scope, NAV_ITEMS) {
+    .controller('NavigationCtrl', function ($scope, NAV_ITEMS) {
         'use strict';
 
         $scope.navItems = NAV_ITEMS;
+    })
 
-        $scope.$on('$routeChangeSuccess', function (eOpts, currentRoute) {
-            if (currentRoute.$$route) {
-                $scope.currentRoute = currentRoute.$$route;
-            }
-        });
+    .controller('HomeCtrl', function ($scope) {
+        'use strict';
+
+        $scope.heading = 'Angular Scaffold!';
     });

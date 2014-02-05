@@ -14,7 +14,7 @@ describe('Unit Testing: Application/Controller', function () {
         $controller = $injector.get('$controller');
     }));
 
-    describe('ApplicationCtrl', function () {
+    describe('HomeCtrl', function () {
         it('should set the correct heading text "Angular Scaffold!"', function () {
             var expected = {
                 heading: 'Angular Scaffold!'
@@ -24,7 +24,7 @@ describe('Unit Testing: Application/Controller', function () {
                 $scope: $scope
             };
 
-            $controller('ApplicationCtrl', params);
+            $controller('HomeCtrl', params);
 
             expect($scope.heading).toBe(expected.heading);
         });

@@ -1,4 +1,4 @@
-<div ng-controller="HeaderCtrl" class="navbar navbar-inverse navbar-fixed-top">
+<div ng-controller="NavigationCtrl" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -10,9 +10,9 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li ng-class="(item.index === currentRoute.index) ? 'active' : ''"
+                <li ui-sref-active="active"
                     ng-repeat="item in navItems">
-                        <a href="{{item.hash}}">
+                        <a ui-sref="{{item.state}}">
                             <span ng-show="item.icon" class="glyphicon {{item.icon}}"></span> {{item.title}}
                         </a>
                 </li>

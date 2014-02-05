@@ -18,7 +18,7 @@
 
         <title>Angular Scaffold</title>
     </head>
-    <body ng-cloak ng-controller="ApplicationCtrl">
+    <body ng-cloak>
         <!--[if lt IE 7]>
         <p class="chromeframe">
             You are using an <strong>outdated</strong> browser.' +
@@ -30,7 +30,7 @@
 
         <!-- Header, main content area and footer -->
         <div ng-include="'app/view/header.tpl.html'"></div>
-        <div ng-view class="container"></div>
+        <div ui-view class="container"></div>
         <div ng-include="'app/view/footer.tpl.html'"></div>
 
         <!-- build:js js/vendor.js -->
@@ -38,7 +38,7 @@
         <script src="../bower_components/jquery/jquery.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script src="../bower_components/angular/angular.js"></script>
-        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
         <!-- endbuild -->
 
         <!-- build:js js/app.js -->

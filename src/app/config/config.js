@@ -4,35 +4,37 @@
  */
 angular.module('application.config', [
         'user',
-        'ngRoute',
+        'ui.router',
         'template.app'
     ])
 
+    // @todo solve problem with user.dashboard state
+    // @todo implement service for injecting $state
+
     .constant('NAV_ITEMS', [
-        {title: 'Home', index: 'home', hash: '#home', icon: 'glyphicon-home'},
-        {title: 'About', index: 'about', hash: '#about', icon: 'glyphicon-info-sign'},
-        {title: 'Contact', index: 'contact', hash: '#contact', icon: 'glyphicon-earphone'},
-        {title: 'My account', index: 'user', hash: '#user/dashboard', icon: 'glyphicon-user'}
+        {title: 'Home', state: 'home', icon: 'glyphicon-home'},
+        {title: 'About', state: 'about', icon: 'glyphicon-info-sign'},
+        {title: 'Contact', state: 'contact', icon: 'glyphicon-earphone'},
+        {title: 'My account', state: 'user.dashboard', icon: 'glyphicon-user'}
     ])
 
-    .config(function ($routeProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
         'use strict';
 
-        $routeProvider
-            .when('/home', {
-                index: 'home',
+        $urlRouterProvider.otherwise('/home');
+
+        $stateProvider
+            .state('home', {
+                url: '/home',
                 templateUrl: 'app/view/home.tpl.html',
-                controller: 'ApplicationCtrl'
+                controller: 'HomeCtrl'
             })
-            .when('/about', {
-                index: 'about',
+            .state('about', {
+                url: '/about',
                 templateUrl: 'app/view/about.tpl.html'
             })
-            .when('/contact', {
-                index: 'contact',
+            .state('contact', {
+                url: '/contact',
                 templateUrl: 'app/view/contact.tpl.html'
-            })
-            .otherwise({
-                redirectTo: '/home'
             });
     });

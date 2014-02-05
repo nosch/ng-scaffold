@@ -4,8 +4,8 @@
     "dependencies": {},
     "devDependencies": {
         "angular": "1.2.10",
-        "angular-route": "1.2.10",
         "angular-mocks": "1.2.10",
+        "angular-ui-router": "0.2.8-bowratic-tedium",
         "jquery": ">= 2.1.0",
         "modernizr": "latest",
         "bootstrap": ">= 3.0.3"
