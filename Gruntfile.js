@@ -28,7 +28,6 @@ module.exports = function (grunt) {
             distDir: 'build/dist/'
         },
 
-        // @todo html2js!
         // @todo concurrent task
 
         clean: {
@@ -167,14 +166,13 @@ module.exports = function (grunt) {
         watch: {
             default: {
                 options: {
-                    livereload: true,
-                    spawn: false
+                    livereload: true
                 },
                 files: [
                     '<%= scaffold.sourceDir %>index.html',
-                    '<%= scaffold.distDir %>app/**/*.tpl.html',
-                    '<%= scaffold.distDir %>css/*.css',
-                    '<%= scaffold.distDir %>**/*.js',
+                    '<%= scaffold.sourceDir %>app/**/*.tpl.html',
+                    '<%= scaffold.sourceDir %>css/*.css',
+                    '<%= scaffold.sourceDir %>**/*.js',
                     'Gruntfile.js'
                 ],
                 tasks: [
