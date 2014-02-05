@@ -28,6 +28,7 @@ module.exports = function (grunt) {
             distDir: 'build/dist/'
         },
 
+        // @todo use source maps!
         // @todo concurrent task
 
         clean: {
