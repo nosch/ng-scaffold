@@ -195,9 +195,10 @@ module.exports = function (grunt) {
         'concat'
     ]);
 
-    // Task registration
     grunt.registerTask('build', [
         'prepare',
+        'jshint',
+        'karma:default',
         'ngmin',
         'uglify',
         'cssmin',
@@ -206,19 +207,14 @@ module.exports = function (grunt) {
         'clean:fonts'
     ]);
 
-    // Task registration
     grunt.registerTask('server', [
         'build',
-        'jshint',
-        'karma:default',
         'connect',
         'watch'
     ]);
 
-    // Task registration
     grunt.registerTask('release', [
         'build',
-        'jshint',
         'karma:unit',
         'clean:tmp'
     ]);
