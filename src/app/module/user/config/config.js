@@ -10,9 +10,9 @@ angular.module('user.config', [
     ])
 
     .constant('USER_MODULES', [
-        {title: 'Dashboard', state: 'user.dashboard', icon: ''},
-        {title: 'Settings', state: 'user.settings', icon: ''},
-        {title: 'Profile', state: 'user.profile', icon: ''}
+        {title: 'Dashboard', state: 'user.dashboard', sref: 'user.dashboard', icon: ''},
+        {title: 'Settings', state: 'user.settings', sref: 'user.settings', icon: ''},
+        {title: 'Profile', state: 'user.profile', sref: 'user.profile', icon: ''}
     ])
 
     .config(function ($stateProvider, $urlRouterProvider) {

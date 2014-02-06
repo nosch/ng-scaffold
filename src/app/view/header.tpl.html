@@ -6,13 +6,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#home">Angular Scaffold</a>
+            <a class="navbar-brand" ui-sref="home">Angular Scaffold</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li ui-sref-active="active"
+                <li ng-class="{active: $state.includes('{{item.state}}')}"
                     ng-repeat="item in navItems">
-                        <a ui-sref="{{item.state}}">
+                        <a ui-sref="{{item.sref}}">
                             <span ng-show="item.icon" class="glyphicon {{item.icon}}"></span> {{item.title}}
                         </a>
                 </li>

@@ -5,8 +5,8 @@
 <ul class="nav nav-tabs">
     <li ui-sref-active="active"
         ng-repeat="module in userModules">
-        <a ui-sref="{{module.state}}">{{module.title}}</a>
+        <a ui-sref="{{module.sref}}">{{module.title}}</a>
     </li>
 </ul>
 
-<div ui-view></div>
+<div id="user-modules" ui-view></div>

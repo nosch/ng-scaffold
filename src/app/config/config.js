@@ -8,14 +8,11 @@ angular.module('application.config', [
         'template.app'
     ])
 
-    // @todo solve problem with user.dashboard state
-    // @todo implement service for injecting $state
-
     .constant('NAV_ITEMS', [
-        {title: 'Home', state: 'home', icon: 'glyphicon-home'},
-        {title: 'About', state: 'about', icon: 'glyphicon-info-sign'},
-        {title: 'Contact', state: 'contact', icon: 'glyphicon-earphone'},
-        {title: 'My account', state: 'user.dashboard', icon: 'glyphicon-user'}
+        {title: 'Home', state: 'home', sref: 'home', icon: 'glyphicon-home'},
+        {title: 'About', state: 'about', sref: 'about', icon: 'glyphicon-info-sign'},
+        {title: 'Contact', state: 'contact', sref: 'contact', icon: 'glyphicon-earphone'},
+        {title: 'My account', state: 'user', sref: 'user.dashboard', icon: 'glyphicon-user'}
     ])
 
     .config(function ($stateProvider, $urlRouterProvider) {
