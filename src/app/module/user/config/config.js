@@ -4,14 +4,14 @@
  */
 angular.module('user.config', [
         'user.dashboard',
-        'user.account',
+        'user.settings',
         'user.profile',
         'ui.router'
     ])
 
     .constant('USER_MODULES', [
         {title: 'Dashboard', state: 'user.dashboard', icon: ''},
-        {title: 'Account', state: 'user.account', icon: ''},
+        {title: 'Settings', state: 'user.settings', icon: ''},
         {title: 'Profile', state: 'user.profile', icon: ''}
     ])
 
@@ -32,9 +32,9 @@ angular.module('user.config', [
                 templateUrl: 'app/module/user/view/user-dashboard.tpl.html',
                 controller: 'UserCtrl'
             })
-            .state('user.account', {
-                url: '/account',
-                templateUrl: 'app/module/user/view/user-account.tpl.html',
+            .state('user.settings', {
+                url: '/settings',
+                templateUrl: 'app/module/user/view/user-settings.tpl.html',
                 controller: 'UserCtrl'
             })
             .state('user.profile', {
