@@ -141,7 +141,7 @@ module.exports = function (grunt) {
                 browsers: ['PhantomJS']
             },
             unit: {
-                configFile: 'test/config/karma.unit.conf.js',
+                configFile: 'test/config/karma.unit.conf.js'
             }
         },
 
@@ -203,7 +203,7 @@ module.exports = function (grunt) {
         'cssmin',
         'usemin',
         'copy:dist',
-        'clean:fonts',
+        'clean:fonts'
     ]);
 
     // Task registration
@@ -220,6 +220,6 @@ module.exports = function (grunt) {
         'build',
         'jshint',
         'karma:unit',
-        'clean:tmp',
+        'clean:tmp'
     ]);
 };
