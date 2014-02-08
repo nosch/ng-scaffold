@@ -3,8 +3,8 @@
     "version": "0.0.9",
     "dependencies": {},
     "devDependencies": {
-        "angular": "1.2.10",
-        "angular-mocks": "1.2.10",
+        "angular": "1.2.12",
+        "angular-mocks": "1.2.12",
         "angular-ui-router": "0.2.8-bowratic-tedium",
         "jquery": ">= 2.1.0",
         "modernizr": "latest",
