@@ -15,7 +15,7 @@ describe('Unit Testing: User/Controller', function () {
     }));
 
     describe('UserCtrl', function () {
-        it('should set the correct heading text "Angular Scaffold!"', function () {
+        it('should set the correct heading text "My account!"', function () {
             var expected = {
                 heading: 'My account!'
             };
