@@ -9,9 +9,10 @@ The main idea behind this little project is to learn how to build an application
 ## 3. Stack
 ### The application
 
-- AngularJS v1.2.10
+- AngularJS v1.2.14
+- UI-Router v0.2.9
 - jQuery v2.1.0
-- Twitter Bootstrap v3.0.3
+- Twitter Bootstrap v3.1.1
 - Modernizr v2.7.1
 
 ### The build process
