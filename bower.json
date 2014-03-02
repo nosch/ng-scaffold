@@ -1,13 +1,16 @@
 {
     "name": "ng-scaffold",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "dependencies": {},
     "devDependencies": {
-        "angular": "1.2.12",
-        "angular-mocks": "1.2.12",
-        "angular-ui-router": "0.2.8-bowratic-tedium",
+        "angular": "1.2.14",
+        "angular-mocks": "1.2.14",
+        "angular-ui-router": "0.2.9",
         "jquery": ">= 2.1.0",
-        "modernizr": "latest",
-        "bootstrap": ">= 3.0.3"
+        "bootstrap": ">= 3.1.1",
+        "underscore": "latest",
+        "underscore.string": "latest",
+        "momentjs": "latest",
+        "modernizr": "latest"
     }
 }
