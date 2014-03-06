@@ -55,6 +55,13 @@ module.exports = function (grunt) {
             }
         },
 
+        uglify: {
+            options: {
+                sourceMap: true,
+                sourceMapIncludeSources: true
+            }
+        },
+
         html2js: {
             app: {
                 options: {
@@ -104,7 +111,7 @@ module.exports = function (grunt) {
 
             dist: {
                 files: [{
-                    // HTML index and templates
+                    // HTML index
                     cwd: '<%= scaffold.htmlDir %>',
                     src : ['index.html'],
                     dest: '<%= scaffold.distDir %>',
