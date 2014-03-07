@@ -1,27 +1,12 @@
 # ng-scaffold
 
-## 1. What is it?
-This a simple skeleton of an [AngularJS](http://angularjs.org/) web application. And with the help of [Grunt](http://gruntjs.com/), [Bower](http://bower.io/) and [Karma](http://karma-runner.github.io/) it is possible to use this skeleton as a starting point for frontend development with AngularJS.
+## What is it?
 
-## 2. What for?
-The main idea behind this little project is to learn how to build an application with AngularJS. And as a really nice *side effect* the automation based on Grunt and Bower takes away some of the repetitive and annoying tasks.
+This is an [AngularJS](http://angularjs.org) application scaffold. It's inspired by [angular-app](https://github.com/angular-app/angular-app). So the JavaScript and other source code is **organized in modules** and not "by layer". It also provides a build, test and basic deployment process based on [Grunt](http://gruntjs.com/), [Bower](http://bower.io/) and [Karma](http://karma-runner.github.io/). You can use this skeleton as a starting point for frontend development with AngularJS.
 
-## 3. Stack
-### The application
+In addition the ng-scaffold project is the groundwork for [generator-ng-scaffold](https://github.com/nosch/generator-ng-scaffold), a [yeoman](http://yeoman.io) generator for AngularJS.
 
-- AngularJS v1.2.14
-- UI-Router v0.2.9
-- jQuery v2.1.0
-- Twitter Bootstrap v3.1.1
-- Modernizr v2.7.1
-
-### The build process
-
-- Grunt v0.4.2
-- Bower v1.2.8
-- Karma v0.10.9
-
-## 4. Installation
+## Installation
 
 1. Install [node.js and npm](http://nodejs.org/download/ "Download node.js")
 2. $ npm install -g grunt-cli
@@ -30,9 +15,26 @@ The main idea behind this little project is to learn how to build an application
 5. $ npm install
 6. $ bower install
 
-## 5. How to use
-Start to develop, to test or to build an application with one of the following grunt tasks.
+## How to use
 
-- $ grunt build
+Start to develop, to test and finally to build an AngularJS application with one of the following grunt tasks.
+
 - $ grunt server (default)
 - $ grunt release
+
+## Stack
+### Application
+
+- AngularJS v1.2.14
+- Twitter Bootstrap v3.1.1
+- UI-Router v0.2.9
+- jQuery v2.1.0
+- Underscore.js v1.6.0
+- Moment.js v2.5.1
+- Modernizr v2.7.1
+
+### Build process
+
+- Grunt v0.4.2
+- Bower v1.2.8
+- Karma v0.10.9
