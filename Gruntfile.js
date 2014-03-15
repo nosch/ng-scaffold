@@ -144,6 +144,15 @@ module.exports = function (grunt) {
                     dest: '<%= scaffold.distDir %>',
                     expand: true
                 }]
+            },
+
+            unmin: {
+                files: [{
+                    cwd: '<%= scaffold.concatDir %>',
+                    src : ['**'],
+                    dest: '<%= scaffold.distDir %>',
+                    expand: true
+                }]
             }
         },
 
@@ -227,11 +236,9 @@ module.exports = function (grunt) {
         'prepare',
         'jshint',
         'karma:default',
-        'ngmin',
-        'uglify',
-        'cssmin',
         'usemin',
         'copy:dist',
+        'copy:unmin',
         'clean:fonts'
     ]);
 
@@ -242,7 +249,15 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('release', [
-        'build',
+        'prepare',
+        'jshint',
+        'karma:default',
+        'ngmin',
+        'uglify',
+        'cssmin',
+        'usemin',
+        'copy:dist',
+        'clean:fonts',
         'karma:unit',
         'clean:tmp'
     ]);
