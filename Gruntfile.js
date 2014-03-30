@@ -177,8 +177,21 @@ module.exports = function (grunt) {
                 configFile: 'test/config/karma.unit.conf.js',
                 browsers: ['PhantomJS']
             },
-            unit: {
+            allBrowsers: {
                 configFile: 'test/config/karma.unit.conf.js'
+            },
+            coverage: {
+                configFile: 'test/config/karma.unit.conf.js',
+                reporters: [
+                    'coverage'
+                ],
+                preprocessors: {
+                    'src/**/*.js': ['coverage']
+                },
+                coverageReporter: {
+                    type : 'html',
+                    dir : 'test/coverage/'
+                }
             }
         },
 
@@ -209,12 +222,29 @@ module.exports = function (grunt) {
                 files: [
                     '<%= scaffold.sourceDir %>index.html',
                     '<%= scaffold.sourceDir %>app/**/*.tpl.html',
+                    '<%= scaffold.sourceDir %>app/**/*.js',
                     '<%= scaffold.sourceDir %>css/*.css',
-                    '<%= scaffold.sourceDir %>**/*.js',
+                    '<%= scaffold.testDir %>**/*.spec.js',
                     'Gruntfile.js'
                 ],
                 tasks: [
-                    'build'
+                    'build',
+                    'jshint',
+                    'karma:default'
+                ]
+            },
+            dev: {
+                files: [
+                    '<%= scaffold.sourceDir %>index.html',
+                    '<%= scaffold.sourceDir %>app/**/*.tpl.html',
+                    '<%= scaffold.sourceDir %>app/**/*.js',
+                    '<%= scaffold.sourceDir %>css/*.css',
+                    '<%= scaffold.testDir %>**/*.spec.js',
+                    'Gruntfile.js'
+                ],
+                tasks: [
+                    'build',
+                    'karma:allBrowsers'
                 ]
             }
         }
@@ -234,31 +264,41 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'prepare',
-        'jshint',
-        'karma:default',
         'usemin',
         'copy:dist',
         'copy:unmin',
         'clean:fonts'
     ]);
 
+    grunt.registerTask('test', [
+        'build',
+        'karma:allBrowsers',
+        'watch:dev'
+    ]);
+
+    grunt.registerTask('coverage', [
+        'build',
+        'karma:coverage'
+    ]);
+
     grunt.registerTask('server', [
         'build',
+        'jshint',
+        'karma:default',
         'connect',
-        'watch'
+        'watch:default'
     ]);
 
     grunt.registerTask('release', [
         'prepare',
-        'jshint',
-        'karma:default',
         'ngmin',
         'uglify',
         'cssmin',
         'usemin',
         'copy:dist',
         'clean:fonts',
-        'karma:unit',
+        'jshint',
+        'karma:allBrowsers',
         'clean:tmp'
     ]);
 };
