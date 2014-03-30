@@ -56,7 +56,7 @@
     "couch"         : false,
     "devel"         : true,
     "dojo"          : false,
-    "jquery"        : false,
+    "jquery"        : true,
     "mootools"      : false,
     "node"          : true,
     "nonstandard"   : false,
@@ -72,6 +72,8 @@
     "white"         : false,
 
     "globals"       : {
+        "jasmine": true,
+        "by": true,
         "angular": true,
         "describe": true,
         "browser": true,

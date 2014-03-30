@@ -16,16 +16,27 @@ In addition the ng-scaffold project is the groundwork for [generator-ng-scaffold
 6. $ bower install
 
 ## How to use
+### Develop and build process
 
-Start to develop, to test and finally to build an AngularJS application with one of the following grunt tasks.
+Start to develop, to test (incl. code coverage) and finally to build an AngularJS application with one of the following grunt tasks.
 
 - $ grunt server (default)
+- $ grunt test
+- $ grunt coverage
 - $ grunt release
+
+### End-To-End testing with protractor
+
+Run e2e test with [protractor](https://github.com/angular/protractor):
+
+1. $ npm install -g protractor
+2. $ webdriver-manager update
+3. $ protractor test/config/protractor.conf.js
 
 ## Stack
 ### Application
 
-- AngularJS v1.2.14
+- AngularJS v1.2.15
 - Twitter Bootstrap v3.1.1
 - UI-Router v0.2.9
 - jQuery v2.1.0
