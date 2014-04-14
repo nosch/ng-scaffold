@@ -163,7 +163,7 @@ module.exports = function (grunt) {
                     '<%= scaffold.concatDir %>**/vendor.js'
                 ]
             },
-            default: [
+            standard: [
                 '<%= scaffold.sourceDir %>**/*.js',
                 '<%= scaffold.testDir %>**/*.spec.js',
                 '<%= scaffold.testDir %>**/*.scenario.js',
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
         },
 
         karma: {
-            default: {
+            standard: {
                 configFile: 'test/config/karma.unit.conf.js',
                 browsers: ['PhantomJS']
             },
@@ -200,7 +200,7 @@ module.exports = function (grunt) {
                 hostname: 'localhost',
                 port: 8080
             },
-            default: {
+            standard: {
                 options: {
                     base: '<%= scaffold.distDir %>',
                     open: true,
@@ -215,7 +215,7 @@ module.exports = function (grunt) {
         },
 
         watch: {
-            default: {
+            standard: {
                 options: {
                     livereload: true
                 },
@@ -230,7 +230,7 @@ module.exports = function (grunt) {
                 tasks: [
                     'build',
                     'jshint',
-                    'karma:default'
+                    'karma:standard'
                 ]
             },
             dev: {
@@ -284,9 +284,9 @@ module.exports = function (grunt) {
     grunt.registerTask('server', [
         'build',
         'jshint',
-        'karma:default',
+        'karma:standard',
         'connect',
-        'watch:default'
+        'watch:standard'
     ]);
 
     grunt.registerTask('release', [
