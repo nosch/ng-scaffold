@@ -10,8 +10,7 @@ exports.config = {
     ],
 
     suites: {
-        home: '../../test/e2e/home/**/*.js',
-        contact: '../../test/e2e/contact/**/*.js'
+        home: '../../test/e2e/home/**/*.js'
     },
 
     framework: 'jasmine',

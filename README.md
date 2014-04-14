@@ -31,7 +31,8 @@ Run e2e test with [protractor](https://github.com/angular/protractor):
 
 1. $ npm install -g protractor
 2. $ webdriver-manager update
-3. $ protractor test/config/protractor.conf.js
+3. $ grunt server
+4. $ protractor test/config/protractor.conf.js
 
 ## Stack
 ### Application
