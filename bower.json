@@ -1,11 +1,11 @@
  {
     "name": "ng-scaffold",
-    "version": "0.1.0",
+    "version": "0.3.1",
     "dependencies": {},
     "devDependencies": {
-        "angular": "1.2.15",
-        "angular-mocks": "1.2.15",
-        "angular-ui-router": "0.2.9",
+        "angular": "1.2.16",
+        "angular-mocks": "1.2.16",
+        "angular-ui-router": "0.2.10",
         "jquery": ">= 2.1.0",
         "bootstrap": ">= 3.1.1",
         "underscore": "latest",
