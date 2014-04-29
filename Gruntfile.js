@@ -195,6 +195,21 @@ module.exports = function (grunt) {
             }
         },
 
+        plato: {
+            dev: {
+                options: {
+                    jshint: grunt.file.readJSON('.jshintrc')
+                },
+                files: {
+                    'reports': [
+                        'src/**/*.js',
+                        'test/unit/**/*.js',
+                        'test/e2e/**/*.js'
+                    ]
+                }
+            }
+        },
+
         connect: {
             options: {
                 hostname: 'localhost',
@@ -279,6 +294,10 @@ module.exports = function (grunt) {
     grunt.registerTask('coverage', [
         'build',
         'karma:coverage'
+    ]);
+
+    grunt.registerTask('report', [
+        'plato'
     ]);
 
     grunt.registerTask('server', [

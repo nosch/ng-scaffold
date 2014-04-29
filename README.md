@@ -18,11 +18,12 @@ In addition the ng-scaffold project is the groundwork for [generator-ng-scaffold
 ## How to use
 ### Develop and build process
 
-Start to develop, to test (incl. code coverage) and finally to build an AngularJS application with one of the following grunt tasks.
+Start to develop, to test (incl. code coverage with Istanbul and reports with Plato) and finally to build an AngularJS application with one of the following grunt tasks.
 
 - $ grunt server (default)
 - $ grunt test
 - $ grunt coverage
+- $ grunt report
 - $ grunt release
 
 ### End-To-End testing with protractor
