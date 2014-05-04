@@ -13,7 +13,6 @@ In addition the ng-scaffold project is the groundwork for [generator-ng-scaffold
 3. $ git clone git@github.com:nosch/ng-scaffold.git "ng-scaffold"
 4. $ cd ng-scaffold
 5. $ npm install
-6. $ bower install
 
 ## How to use
 ### Develop and build process
@@ -22,8 +21,8 @@ Start to develop, to test (incl. code coverage with Istanbul and reports with Pl
 
 - $ grunt server (default)
 - $ grunt test
-- $ grunt coverage
-- $ grunt report
+- $ grunt coverage (generates test/coverage/)
+- $ grunt report (generates reports/)
 - $ grunt release
 
 ### End-To-End testing with protractor
