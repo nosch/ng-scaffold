@@ -40,13 +40,13 @@ Run e2e test with [protractor](https://github.com/angular/protractor):
 - AngularJS v1.2.16
 - UI-Router v0.2.10
 - Twitter Bootstrap v3.1.1
-- jQuery v2.1.0
+- jQuery v2.1.1
 - Underscore.js v1.6.0
 - Moment.js v2.6.0
-- Modernizr v2.7.2
+- Modernizr v2.8.2
 
 ### Build process
 
-- Grunt v0.4.4
-- Bower v1.3.2
-- Karma v0.12.9
+- Grunt v0.4.5
+- Bower v1.3.3
+- Karma v0.12.16
